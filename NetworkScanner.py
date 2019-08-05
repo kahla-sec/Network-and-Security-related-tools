@@ -4,7 +4,6 @@ import argparse
 import urllib.request as urllib2
 import json
 import codecs
-import subprocess
 from threading import Thread
 def getargs ():
         parser=argparse.ArgumentParser()
@@ -22,7 +21,7 @@ def getmacvend (mac) :
         reader = codecs.getreader("utf-8")
         obj = json.load(reader(response))
         return obj['result']['company']
-
+# Or Simply Arping can handle all of that but doing things from scratch is better :p
 def scan(ip) :
     arp_req=scapy.ARP(pdst=ip)
     ether_broa=scapy.Ether(dst="ff:ff:ff:ff:ff:ff")
